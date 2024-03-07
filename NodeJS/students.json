@@ -1,0 +1,44 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "kriti",
+      "location": "ranchi",
+      "phone": "987193232",
+      "courses": [
+        "java",
+        "selenium"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "naina",
+      "location": "bangalore",
+      "phone": "45850234",
+      "courses": [
+        "api",
+        "database"
+      ]
+    },
+    {
+      "name": "neha verma",
+      "location": "India",
+      "phone": "987490222",
+      "courses": [
+        "accountancy",
+        "commerce"
+      ],
+      "id": "3"
+    },
+    {
+      "id": "4",
+      "name": "varsha",
+      "location": "mumbai",
+      "phone": "93488923",
+      "courses": [
+        "ui",
+        "web"
+      ]
+    }
+  ]
+}
