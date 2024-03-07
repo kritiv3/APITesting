@@ -65,8 +65,29 @@
 		{
 			"name": "Update Student Data",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"neha verma\",\r\n    \"location\": \"India\",\r\n    \"phone\": \"987490222\",\r\n    \"courses\": [\r\n        \"accountancy\",\r\n        \"commerce\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/students/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"3"
+					]
+				}
 			},
 			"response": []
 		},
