@@ -9,3 +9,13 @@ Below softwares are required to install to create your own API:
 
 3. JSON-server -> required to run sample or dummy APIs. 
     3.1 To install JSON-server, use cmd prompt -> npm install -g json-server
+
+
+Steps to follow:
+1. Create students.json file and save it on any path
+2. Navigate to the correct path where students.json file is placed and open cmd terminal
+3. Run "json-server students.json" on cmd prompt and press enter
+4. Now, students.json file is up and running and endpoint is assigned. Example: https://localhost:3000/students
+5. Don't close the terminal until its data is in use. 
+6. Now, we are ready to run api in postman
+7. Import collection which is attached here and run to observe. 
