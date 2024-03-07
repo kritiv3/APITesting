@@ -1,10 +1,11 @@
-Below softwares are required to install to create own API:
-1. NodeJS -> It also NPM be default
+Below softwares are required to install to create your own API:
+1. NodeJS
     1.1 Set Environment Variable path -> generally automatically set but if not then set path of nodejs
     1.2 check version in cmd: node --version -> current version is 20.11.1
 
-2. NPM -> Node Package Manager
-        check version in cmd: nvm --version -> current version is 10.2.4
+2. NPM -> Node Package Manager(NPM package is available in NodeJS package by default)
+    1.1 No need to install it separately
+    1.2 check version in cmd: nvm --version -> current version is 10.2.4
 
 3. JSON-server -> required to run sample or dummy APIs. 
     3.1 To install JSON-server, use cmd prompt -> npm install -g json-server
