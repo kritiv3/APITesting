@@ -6,4 +6,4 @@ JSON Data Types:
 5. Object
 6. Array
 
-JSON has a key value pairs(key:value)
+JSON has a key value pair(key:value)
