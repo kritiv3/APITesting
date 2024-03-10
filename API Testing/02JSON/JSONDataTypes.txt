@@ -1,0 +1,66 @@
+JSON Data Types:
+1. Number
+    Eg:
+    {
+        "id": 101,
+        "code": 2921,
+        "number": 78.12
+    }
+
+2. String
+    Eg:
+    {
+        "name": "john",
+        "grade": "A"
+    }
+
+3. Boolean
+    Eg:
+    {
+        "sale":true
+    }
+4. Null
+    Eg:
+    {
+        "middlename":false
+    }
+5. Object
+``  Eg:
+    {
+        "employee":
+                {
+                    "name": "john",
+                    "age": 20,
+                }
+    }
+
+6. Array
+
+JSON-Syntax
+------------------
+1. Data should be in name value pair(key:value)
+2. Data should be separated by commas
+3. Curly braces should be hold objects
+4. Square brackets hold arrays
+
+Eg: we have to store data of 3 students
+
+{
+    "students":[
+        {
+            "sid":101,
+            "sname":"john",
+            "grade":"A"
+        },
+        {
+            "sid":102,
+            "sname":"george",
+            "grade":"B"
+        },
+        {
+            "sid":103,
+            "sname":"michelle",
+            "grade":"C"
+        }
+    ]
+}

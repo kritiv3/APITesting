@@ -1,0 +1,24 @@
+We can validate below responses:
+1. Status code
+2. Headers
+3. Cookies
+4. Response time
+5. Response body
+
+Assertions -> validation
+1. using "pm" library(postman library)
+2. it has many functions and its functions are written in javascript
+3. javascript can be written in 2 ways:
+    3.1 Normal function
+        pm.test("Test Name", function()
+                            {
+                                //assertion;
+                            }
+                );
+
+    3.2 Arrow function
+        pm.test("Test Name", () =>
+                            {
+                                //assertion;
+                            }
+                );
