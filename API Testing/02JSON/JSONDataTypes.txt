@@ -22,7 +22,7 @@ JSON Data Types:
 4. Null
     Eg:
     {
-        "middlename":false
+        "middlename":null
     }
 5. Object
 ``  Eg:
