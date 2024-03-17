@@ -22,3 +22,4 @@ Assertions -> validation
                                 //assertion;
                             }
                 );
+4. Export the collection placed in this folder and observe the test results of the assertions
