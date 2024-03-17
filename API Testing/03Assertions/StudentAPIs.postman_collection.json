@@ -1,0 +1,416 @@
+{
+	"info": {
+		"_postman_id": "80d6c9f8-f473-4380-b153-666124cad857",
+		"name": "StudentAPIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33421156"
+	},
+	"item": [
+		{
+			"name": "Get Single Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Test the status code\r",
+							"pm.test(\"Status Code is 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Test the headers\r",
+							"pm.test(\"Content-Type header is present\",() => {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is application/json\",() => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql\r",
+							"    ('application/json');\r",
+							"});\r",
+							"\r",
+							"//Test the cookies\r",
+							"pm.test(\"Cookie 'language' is not present\", () => {\r",
+							"    pm.expect(pm.cookies.has('language')).to.be.false;\r",
+							"});\r",
+							"\r",
+							"//cookies are not generated here so this assertion got fail\r",
+							"pm.test(\"Cookie language has value 1\", () => {\r",
+							"    pm.expect(pm.cookies.get('language')).to.eql(\"en-gb\");\r",
+							"});\r",
+							"\r",
+							"//Test the response time\r",
+							"pm.test(\"Resonse time is less than 50ms\",() => {\r",
+							"    pm.expect(pm.response.responseTime).to.below(50);\r",
+							"});\r",
+							"\r",
+							"//Test the type of any part of the response\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"    pm.expect(jsonData).to.be.an(\"object\");\r",
+							"    pm.expect(jsonData.name).to.be .a(\"string\");\r",
+							"    pm.expect(jsonData.id).to.be.a(\"string\");\r",
+							"    pm.expect(jsonData.courses).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"//Test Array contents in body\r",
+							"pm.test(\"Test array properties\", () => {\r",
+							"    //courses includes \"Java\"\r",
+							"    pm.expect(jsonData.courses).to.include(\"java\");\r",
+							"\r",
+							"    //courses array must include all listed\r",
+							"    pm.expect(jsonData.courses).to.have.members([\"java\",\"selenium\"]);\r",
+							"    \r",
+							"});\r",
+							"\r",
+							"//Test the JSON values of fields in response\r",
+							"pm.test(\"values of fields in response\", () => {\r",
+							"    pm.expect(jsonData.id).to.eql(\"1\");\r",
+							"    pm.expect(jsonData.name).to.eql(\"kriti\")\r",
+							"    pm.expect(jsonData.location).to.eql(\"ranchi\")\r",
+							"    pm.expect(jsonData.phone).to.eql(\"987193232\");\r",
+							"    pm.expect(jsonData.courses[0]).to.eql(\"java\");\r",
+							"    pm.expect(jsonData.courses[1]).to.eql(\"selenium\");\r",
+							"});\r",
+							"\r",
+							"//JSON Schema validation\r",
+							"\r",
+							"var schema={\r",
+							"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+							"  \"type\": \"object\",\r",
+							"  \"properties\": {\r",
+							"    \"id\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"name\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"location\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"phone\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"courses\": {\r",
+							"      \"type\": \"array\",\r",
+							"      \"items\": [\r",
+							"        {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        {\r",
+							"          \"type\": \"string\"\r",
+							"        }\r",
+							"      ]\r",
+							"    }\r",
+							"  },\r",
+							"  \"required\": [\r",
+							"    \"id\",\r",
+							"    \"name\",\r",
+							"    \"location\",\r",
+							"    \"phone\",\r",
+							"    \"courses\"\r",
+							"  ]\r",
+							"}\r",
+							"\r",
+							"pm.test('Schema is valid', function(){\r",
+							"    pm.expect(tv4.validate(jsonData,schema)).to.be.true;\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/students/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Students Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Test the status code\r",
+							"pm.test(\"Status Code is 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Test the headers\r",
+							"pm.test(\"Content-Type header is present\",() => {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is application/json\",() => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql\r",
+							"    ('application/json');\r",
+							"});\r",
+							"\r",
+							"//Test the cookies\r",
+							"pm.test(\"Cookie 'language' is not present\", () => {\r",
+							"    pm.expect(pm.cookies.has('language')).to.be.false;\r",
+							"});\r",
+							"\r",
+							"//cookies are not generated here so this assertion got fail\r",
+							"pm.test(\"Cookie language has value 1\", () => {\r",
+							"    pm.expect(pm.cookies.get('language')).to.eql(\"en-gb\");\r",
+							"});\r",
+							"\r",
+							"//Test the response time\r",
+							"pm.test(\"Resonse time is less than 50ms\",() => {\r",
+							"    pm.expect(pm.response.responseTime).to.below(50);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new Student Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Test the status code\r",
+							"pm.test(\"Status Code is 201\", () => {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"//Test the headers\r",
+							"pm.test(\"Content-Type header is present\",() => {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is application/json\",() => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql\r",
+							"    ('application/json');\r",
+							"});\r",
+							"\r",
+							"//Test the cookies\r",
+							"pm.test(\"Cookie 'language' is not present\", () => {\r",
+							"    pm.expect(pm.cookies.has('language')).to.be.false;\r",
+							"});\r",
+							"\r",
+							"//cookies are not generated here so this assertion got fail\r",
+							"pm.test(\"Cookie language has value 1\", () => {\r",
+							"    pm.expect(pm.cookies.get('language')).to.eql(\"en-gb\");\r",
+							"});\r",
+							"\r",
+							"//Test the response time\r",
+							"pm.test(\"Resonse time is less than 50ms\",() => {\r",
+							"    pm.expect(pm.response.responseTime).to.below(100);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"mani\",\r\n    \"location\": \"varanasi\",\r\n    \"phone\": \"45892045\",\r\n    \"courses\": [\r\n        \"python\",\r\n        \"cypress\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Student Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Test the status code\r",
+							"pm.test(\"Status Code is 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Test the headers\r",
+							"pm.test(\"Content-Type header is present\",() => {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is application/json\",() => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql\r",
+							"    ('application/json');\r",
+							"});\r",
+							"\r",
+							"//Test the cookies\r",
+							"pm.test(\"Cookie 'language' is not present\", () => {\r",
+							"    pm.expect(pm.cookies.has('language')).to.be.false;\r",
+							"});\r",
+							"\r",
+							"//cookies are not generated here so this assertion got fail\r",
+							"pm.test(\"Cookie language has value 1\", () => {\r",
+							"    pm.expect(pm.cookies.get('language')).to.eql(\"en-gb\");\r",
+							"});\r",
+							"\r",
+							"//Test the response time\r",
+							"pm.test(\"Resonse time is less than 50ms\",() => {\r",
+							"    pm.expect(pm.response.responseTime).to.below(50);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"neha verma\",\r\n    \"location\": \"India\",\r\n    \"phone\": \"9874680222\",\r\n    \"courses\": [\r\n        \"accountancy\",\r\n        \"commerce\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/students/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Student Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Test the status code\r",
+							"pm.test(\"Status Code is 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Test the headers\r",
+							"pm.test(\"Content-Type header is present\",() => {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is application/json\",() => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql\r",
+							"    ('application/json');\r",
+							"});\r",
+							"\r",
+							"//Test the cookies\r",
+							"pm.test(\"Cookie 'language' is not present\", () => {\r",
+							"    pm.expect(pm.cookies.has('language')).to.be.false;\r",
+							"});\r",
+							"\r",
+							"//cookies are not generated here so this assertion got fail\r",
+							"pm.test(\"Cookie language has value 1\", () => {\r",
+							"    pm.expect(pm.cookies.get('language')).to.eql(\"en-gb\");\r",
+							"});\r",
+							"\r",
+							"//Test the response time\r",
+							"pm.test(\"Resonse time is less than 50ms\",() => {\r",
+							"    pm.expect(pm.response.responseTime).to.below(50);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/students/7de2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"7de2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
