@@ -1,0 +1,25 @@
+Pre-requisite for performing API Chaining
+---------------------------------------------
+
+url: https://gorest.co.in
+
+POST        /public/v2/users	        Create a new user
+GET         /public/v2/users/1	        Get user details
+PUT|PATCH   /public/v2/users/1	        Update user details
+DELETE      /public/v2/users/1	        Delete user
+
+Token: 6f5d178268ed653d11c11cec85a58d6d47e08218de5e95215812b46d1921ecb5(DON'T Use this - Generate your own from GO Rest website)
+
+Request Body(POST/PUT)
+{
+    "name" : "scott",
+    "gender" : "male", 
+    "email" : "abc@gmail.com",
+    "status" : "inactive"
+}
+
+Import the "StudentAPIs-Chaining.postman_collection.json" collection placed in this folder and observe the chaining process of Student records
+
+Import the "GoRestApI-Chaining.postman_collection" collection placed in this folder and observe the chaining process of users id
+
+
