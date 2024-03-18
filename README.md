@@ -1,5 +1,5 @@
 Basic Concepts of API Testing:<br>
-1.Environment Set Up and Type of HTTPs Request<br>
+1. Environment Set Up and Type of HTTPs Request<br>
 2. How to Create you own API using NodeJS, NPM and JSON-server<br>
 3. Diiferent type of Assertions(API Response Validations)<br>
 4. Scripts & Types of Variables<br>
