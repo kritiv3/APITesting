@@ -1,0 +1,29 @@
+Books API
+---------------------------------------------
+This API allows is to reserve a book
+
+url: https://https://simple-books-api.glitch.me/
+
+API Authentication
+-----------------------
+To submit or view an order , we need to register our API Client
+
+Send a POST request with a request body:
+
+POST /https://simple-books-api.glitch.me/api-clients/
+Request Body: 
+{
+    "clientName" : "Training",
+    "clientEmail" : "krititraining@gmail.com"
+}
+
+Response Body returns an Access Token: (DON'T Use this - Generate your own by trying different name & email)
+{
+    "accessToken": "82a17bff55e5f5b8b958c65e235772a5c9b3d24e611f79b62f178660135691f8"
+}
+
+Import the "BooksAPI.json" collection placed in this folder and observe the chaining process for Books API records
+
+Import the "BookAPI_DataDriven.json" collection placed in this folder and observe how excel and json files are getting 
+used for data driven testing
+
