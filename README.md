@@ -4,7 +4,7 @@ Basic Concepts of API Testing:<br>
 3. Scripts & Types of Variables<br>
 4. API Chaining<br>
 6. Data Driven Testing(Parameterisation)<br>
-7. Authentication Types(File Upload API)<br>
+7. Authentication Types<br>
 8. Swagger(Documenting & Publishing APIs)<br>
 9. Git, Github & Jenkins(How to run collections)<br>
    
