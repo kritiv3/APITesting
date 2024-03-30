@@ -1,0 +1,23 @@
+Authentication Types
+-------------------------
+1. Basic Authentication
+    -> needs username and password for authorization 
+
+2. Digest Authentication
+    -> it also requires username and password for authorization but in an encrypted format
+    -> sends an encrypted format to server
+    -> Digest Auth is more secure than Basic Auth due to encryption
+
+3. Bearer Type Authentication
+    -> needs access token to access APIs
+
+4. OAuth 1.0(Open Authorization)
+
+Observe above 4 Authentication types working flow using examples provided in below link folder
+https://www.postman.com/postman/workspace/published-postman-templates/folder/631643-df815c41-a76b-4b5b-7129-ea59275f254b
+
+
+5. OAuth 2.0(Mostly Used as compared to OAuth 1.0)
+
+Observe above OAuth 2.0 Authentication working flow using examples provided in below link folder
+https://www.postman.com/postman/workspace/published-postman-templates/collection/1559645-e1dfc9cb-3de7-4a73-82cd-602334bae284?action=share&creator=33421156
